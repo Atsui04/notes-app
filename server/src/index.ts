@@ -11,7 +11,10 @@ const noteSchema = z.object({
   content: z.string(),
 });
 
-let notes = [
+type NoteInput = z.infer<typeof noteSchema>;
+type Note = NoteInput & { id: string };
+
+let notes: Note[] = [
   { id: "1", title: "First note", content: "First note's text" },
   { id: "2", title: "Buy products", content: "Milk, bread, cheese" },
 ];
